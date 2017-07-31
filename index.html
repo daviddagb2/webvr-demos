@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demo WebVR David Blanchard</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame">
+    <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script> -->
+        <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    
+    <script>
+    
+      AFRAME.registerComponent('scale-on-interact', {
+    schema: {
+        to: {default: '2.5 2.5 2.5'}
+    }, 
+
+    init: function () {
+        var data = this.data;
+
+    }, 
+
+    update: function() {
+        var data = this.data;
+        console.log(data.color);
+
+        // MOUSE ENTER EVENT
+        this.el.addEventListener('mouseenter', function() {
+            console.log("enter");
+            this.setAttribute('to', data.to);
+        });
+
+        // CLICK EVENT
+        this.el.addEventListener('click', function() {
+            console.log("click");
+        });
+
+        // MOUSE LEAVE EVENT
+        this.el.addEventListener('mouseleave', function() {
+            console.log("leave");
+        });
+    }
+});
+      
+    </script>
+    
+    
+  </head>
+  <body>
+    <a-scene>
+      <!--<a-box position="-3 0.5 -3" rotation="0 90 0" color="#FFFF00" src="https://s-media-cache-ak0.pinimg.com/736x/8e/33/fa/8e33fa90c71e445c9ce287acc0eea64e--wooden-crates-creative-thinking.jpg"
+             event-set__enter="_event: mouseenter; color: #0000F0; rotation: 180 45 20"
+             event-set__leave="_event: mouseleave; color: #000000; rotation: 0 0 4"></a-box>  -->
+      
+      
+      <a-assets>
+        <a-asset-item id="why-male-models" src="https://cdn.glitch.com/0d2b2391-ffd0-4126-8ecf-62e2d1ffed58%2Fman.dae?1500950122741"></a-asset-item>
+        <a-asset-item id="iglesia-models" src="https://cdn.glitch.com/0d2b2391-ffd0-4126-8ecf-62e2d1ffed58%2Figlesia.dae?1500996153240"></a-asset-item>
+        
+        <img id="shadow2" src="https://cdn.glitch.com/0d2b2391-ffd0-4126-8ecf-62e2d1ffed58%2Fradial-shadow-2.png?1500949275898">
+        <!--<img id="fall" src="fall.png">
+
+<a-asset-item id="why-male-models" src="https://cdn.glitch.com/0d2b2391-ffd0-4126-8ecf-62e2d1ffed58%2Fman.dae?1500950122741"></a-asset-item>
+        <img id="goggles" src="goggles.png">
+        <img id="mozvr" src="../../assets/img/mozvr.png">
+        <img id="price" src="price.png">
+        
+        <img id="shoes" src="shoes.png"> -->
+      </a-assets>
+
+      
+      <!-- Modelo 3d personaje -->
+       <a-entity id="model" position="0 0 -3">
+        <a-animation attribute="rotation" from="0 -30 0" to="0 330 0" dur="1500"
+                     easing="linear" repeat="indefinite"></a-animation>
+        <a-collada-model position="-.35 0 .55" rotation="0 -20 0" scale="1.5 1.5 1.5"
+                         src="#why-male-models"></a-collada-model>
+        <a-image src="#shadow2" rotation="-90 0 0" scale="0.5 0.5 0.5"></a-image>
+      </a-entity>
+
+      
+      
+      
+      <!-- Modelo 3d iglesia -->
+       <a-entity id="modeliglesia" position="0 0 -70">
+        <a-collada-model position="-.35 0 .55" rotation="0 90 0" scale="1 1 1" src="#iglesia-models"></a-collada-model>
+        <a-image src="#shadow2" rotation="-90 0 0" scale="0.5 0.5 0.5"></a-image>
+      </a-entity>
+
+      
+      
+          
+      <!-- Boxes Lines -->
+      
+      <a-box position="-3 0.5 0" rotation="0 90 0" src="http://i.imgur.com/UCjsJL8.jpg"
+             event-set__enter="_event: mouseenter; rotation: 180 45 20; src"
+             event-set__leave="_event: mouseleave; rotation: 0 0 4"></a-box>
+      
+      
+        <a-box position="-3 0.5 2" rotation="0 90 0" src="http://i.imgur.com/UCjsJL8.jpg"
+             event-set__enter="_event: mouseenter; rotation: 180 45 20"
+             event-set__leave="_event: mouseleave; rotation: 0 0 4"></a-box>
+      
+      <a-box position="-3 0.5 4" rotation="0 90 0" src="http://i.imgur.com/UCjsJL8.jpg"
+             event-set__enter="_event: mouseenter; rotation: 180 45 20"
+             event-set__leave="_event: mouseleave; rotation: 0 0 4"></a-box>
+      
+       <a-box position="-3 0.5 6" rotation="0 90 0" src="http://i.imgur.com/UCjsJL8.jpg"
+             event-set__enter="_event: mouseenter; rotation: 180 45 20"
+             event-set__leave="_event: mouseleave; rotation: 0 0 4"></a-box>
+      
+       <a-box position="-3 0.5 8" rotation="0 90 0" src="http://i.imgur.com/UCjsJL8.jpg"
+             event-set__enter="_event: mouseenter; rotation: 180 45 20"
+             event-set__leave="_event: mouseleave; rotation: 0 0 4"></a-box>
+      
+      
+      
+      <!-- Boxes Lines 2 -->
+      
+      <a-box position="6 0.5 0" rotation="0 90 0" src="http://i.imgur.com/UCjsJL8.jpg"
+             event-set__enter="_event: mouseenter; rotation: 180 45 20"
+             event-set__leave="_event: mouseleave; rotation: 0 0 4"></a-box>
+      
+      
+        <a-box position="6 0.5 2" rotation="0 90 0" src="http://i.imgur.com/UCjsJL8.jpg"
+             w
+             event-set__leave="_event: mouseleave; rotation: 0 0 4"></a-box>
+      
+      <a-box position="6 0.5 4" rotation="0 90 0" src="http://i.imgur.com/UCjsJL8.jpg"
+             event-set__enter="_event: mouseenter; rotation: 180 45 20"
+             event-set__leave="_event: mouseleave; rotation: 0 0 4"></a-box>
+      
+       <a-box position="6 0.5 6" rotation="0 90 0" src="http://i.imgur.com/UCjsJL8.jpg"
+             event-set__enter="_event: mouseenter; rotation: 180 45 20"
+             event-set__leave="_event: mouseleave; rotation: 0 0 4"></a-box>
+      
+       <a-box position="6 0.5 8" rotation="0 90 0" src="http://i.imgur.com/UCjsJL8.jpg"
+             event-set__enter="_event: mouseenter; rotation: 180 45 20"
+             event-set__leave="_event: mouseleave; rotation: 0 0 4"></a-box>
+      
+      
+      
+      <!-- Plano del piso -->
+       <a-plane position="0 0 0" rotation="-90 0 0" width="40" height="40" 
+               material="src: http://i.imgur.com/fZ2FBCF.jpg; repeat: 30 30"></a-plane>
+      
+      
+      <!-- Plano de la pared izquierda -->
+       <a-plane position="20 10 0" rotation="0 -90 0" width="40" height="20" 
+               material="src: http://i.imgur.com/eqV8Atp.jpg; repeat: 15 15"></a-plane>
+      
+       <!-- Plano de la pared derecha -->
+       <a-plane position="-20 10 0" rotation="0 90 0" width="40" height="20" 
+               material="src: http://i.imgur.com/eqV8Atp.jpg; repeat: 15 15"></a-plane>
+      
+      
+      <!-- Plano de la pared frontal -->
+       <a-plane position="0 0 -20" rotation="0 0 -180" width="40" height="5" 
+               material="src: http://i.imgur.com/eqV8Atp.jpg; repeat: 15 15"></a-plane>
+      
+       <!-- Plano de la pared trasera -->
+       <a-plane position="0 0 20" rotation="0 180 0" width="40" height="20" 
+               material="src: http://i.imgur.com/eqV8Atp.jpg; repeat: 15 15"></a-plane>
+      
+      
+      
+      <a-sphere position="0 1.25 -5" radius="1.25" src="http://i.imgur.com/DQ2XiR9.png"
+                event-set__down="_event: mousedown; scale: 1.2 1.2 1.2"
+                event-set__up="_event: mouseup; scale: 1 1 1"
+                event-set__leave="_event: mouseleave; scale: 1 1 1"></a-sphere>
+      
+      
+      
+      
+        
+      <!-- pilares -->
+      <a-cylinder position="-5 0 0" radius="0.5" height="20" material="src: http://i.imgur.com/MLDaFuo.jpg; repeat: 30 20" 
+                  event-set__enter="_event: mouseenter; "
+                  event-set__leave="_event: mouseleave; ">
+        </a-cylinder>
+      
+      <a-cylinder position="5 0 0" radius="0.5" height="20" material="src: http://i.imgur.com/MLDaFuo.jpg; repeat: 30 20" 
+                  event-set__enter="_event: mouseenter; "
+                  event-set__leave="_event: mouseleave; ">
+        </a-cylinder>
+      
+      
+      
+      
+      
+      
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"
+                  event-set__enter="_event: mouseenter; _target: #cylinderText; visible: true"
+                  event-set__leave="_event: mouseleave; _target: #cylinderText; visible: false">
+        
+        <a-text id="cylinderText" value="Esto es un mensaje" align="center" color="#FFF" visible="false" position="0 -0.55 0.55"
+                geometry="primitive: plane; width: 1.75" material="color: #333"></a-text>
+        
+        
+      </a-cylinder>
+       
+      
+  
+      <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera>
+      
+      
+      
+      
+      <!-- EL cielo -->
+      <!-- <a-sky color="#fCfCEC"></a-sky> 
+      <a-assets>
+        <img id="sky" src="http://www.philohome.com/skycollec/equirect/sky4.jpg">
+      </a-assets>
+      <a-sky src="#sky"></a-sky>-->
+  
+      <a-sky src="http://i.imgur.com/YGTjUlg.jpg"></a-sky>
+      
+      
+      
+    </a-scene>
+      
+      
+  </body>
+</html>
