@@ -1,5 +1,3 @@
-# A-Frame Project
+# Demo de A-Frame
 
-Built with [A-Frame](https://aframe.io), a web framework for building virtual reality experiences. Make WebVR with HTML and Entity-Component. Works on Vive, Rift, desktop, mobile platforms.
-
-Click and drag on desktop. Open it on a smartphone and use the device motion sensors. Or [plug in a VR headset](https://webvr.rocks)!
+Este repositorio muestra una serie de ejemplos sobre webvr utilizando A-Frame para la creación de experiencias con realidad virtual. Estos ejemplos pueden ser vistos con un dispositivo de realidad virtual.
